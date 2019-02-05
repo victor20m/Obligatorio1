@@ -1,19 +1,26 @@
+/*
+ * Grupo M2A:
+ * Erik Fernandez (225511)
+ * Victor Munareto (226829)
+ */
+
 public class Jugador implements Comparable<Jugador> {
 
-    String alias;
+    private String nombre;
+    private String alias;
+    private int puntos;
+    private int movimientosAcumulados;
 
     public void setAlias(String alias) {
         this.alias = alias;
     }
-    String nombre;
-    int Puntos;
 
     public String getNombre() {
         return nombre;
     }
 
     public int getPuntos() {
-        return Puntos;
+        return puntos;
     }
 
     public void setNombre(String nombre) {
@@ -21,11 +28,19 @@ public class Jugador implements Comparable<Jugador> {
     }
 
     public void setPuntos(int Puntos) {
-        this.Puntos = Puntos;
+        this.puntos = Puntos;
     }
 
     public String getAlias() {
         return alias;
+    }
+
+    public int getMovimientosAcumulados() {
+        return movimientosAcumulados;
+    }
+
+    public void setMovimientosAcumulados(int movimientosAcumulados) {
+        this.movimientosAcumulados = movimientosAcumulados;
     }
 
     @Override
@@ -33,21 +48,20 @@ public class Jugador implements Comparable<Jugador> {
 
         Boolean bool = false;
 
-        if (this.getPuntos() == ((Jugador) o).getPuntos()) {
+        if (this.getAlias().equals(((Jugador) o).getAlias())) {
             bool = true;
         }
         return bool;
     }
 
     @Override
-
     public int compareTo(Jugador j1) {
-        return this.getPuntos() - j1.getPuntos();
+        return j1.getPuntos() - this.getPuntos();
     }
 
     @Override
     public String toString() {
-        return this.getAlias()+ " " + this.getNombre()+ " "+ this.getPuntos();
+        return "Alias: "+this.getAlias() + " Nombre: " + this.getNombre() + " Partidas ganadas: " + this.getPuntos();
     }
 
 }
